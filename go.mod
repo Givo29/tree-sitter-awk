@@ -1,4 +1,4 @@
-module github.com/tree-sitter/tree-sitter-awk
+module github.com/Givo29/tree-sitter-awk
 
 go 1.23
 
