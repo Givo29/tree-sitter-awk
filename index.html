@@ -1,0 +1,744 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      lang="en"
+      xml:lang="en"
+      class="">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width">
+<title>OpenProject</title>
+
+
+<meta name="app_base_path" content=""/>
+<base href="/" />
+<meta name="current_user"
+      data-name="Anonymous"
+      data-logged-in="false"
+      data-id="3"/>
+
+<meta name="demo_projects_available" content="true"/>
+<meta name="boards_demo_data_available" content="true"/>
+
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="pWZi1yqyROdh04ABGGI9Uxuy1OAeWiOsB4_MDpKywHQRRBiGPZbDjTkQJsg9xNEXAjT1Q8mvvUw8D63ZIMEVCA" />
+<meta name="openproject_initializer" data-locale="en" data-defaultLocale="en" data-instanceLocale="en" data-firstWeekOfYear="" data-firstDayOfWeek="" data-environment="production" data-edition="standard" />
+
+<!-- global meta hooks before any scripts are loaded-->
+
+
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+
+  <link rel="apple-touch-icon" type="image/png" href="/images/apple-touch-icon-120x120.png" sizes="120x120" />
+
+
+
+
+<script src="/assets/frontend/vendor.393f5e38f47d431c.js" nonce="sZHe0NC0nDCjriU+oFKvBGdSyZ/+UuSU9F1pe0/z88I="></script><script src="/assets/frontend/polyfills.72894df1d5ab1fec.js" nonce="sZHe0NC0nDCjriU+oFKvBGdSyZ/+UuSU9F1pe0/z88I="></script><script src="/assets/frontend/runtime.ab9043263c8e19af.js" nonce="sZHe0NC0nDCjriU+oFKvBGdSyZ/+UuSU9F1pe0/z88I="></script><script src="/assets/frontend/main.d3bbd90a54a47fbc.js" nonce="sZHe0NC0nDCjriU+oFKvBGdSyZ/+UuSU9F1pe0/z88I="></script><link rel="stylesheet" href="/assets/frontend/styles.ec6c7755f6483dd2.css" media="all" />
+
+<link rel="stylesheet" href="/highlighting/styles/97c452618f00a6dd15c0a6a518d008bc83d5e331c8421076f3b5a7861ade51ae.css" media="all" />
+
+
+<style type="text/css">
+
+  .op-logo--link {
+    background-image: url(/logo_openproject_white_big.png);
+  }
+
+  .op-logo--link_high_contrast {
+    background-image: url(/logo_openproject.png);
+  }
+</style>
+
+<style type="text/css">
+
+  /* Overwrite Primer primitives */
+  [data-color-mode] {
+      --body-background: var(--bgColor-default);
+      --body-font-color: var(--fgColor-default);
+  }
+  /* Override Primer variable to ensure compatibility with currently
+     configured design outside of high contrast mode  */
+  [data-color-mode]:not([data-light-theme=light_high_contrast]) {
+    --fgColor-accent: var(--accent-color) !important;
+    --fgColor-link: var(--accent-color) !important;
+    --control-checked-bgColor-rest: var(--control-checked-color) !important;
+    --control-checked-bgColor-active: var(--control-checked-color) !important;
+    --control-checked-bgColor-hover: var(--control-checked-color--major1) !important;
+    --controlKnob-borderColor-checked: var(--control-checked-color) !important;
+    --button-primary-fgColor-rest: var(--button--primary-font-color) !important;
+    --button-primary-bgColor-rest: var(--button--primary-background-color) !important;
+    --button-primary-bgColor-hover: var(--button--primary-background-hover-color) !important;
+    --button-primary-bgColor-disabled: var(--button--primary-background-disabled-color) !important;
+    --button-primary-borderColor-disabled: var(--button--primary-border-disabled-color) !important;
+    --fc-page-bg-color: var(--body-background) !important;
+    --fc-list-event-hover-bg-color: var(--control-transparent-bgColor-hover) !important;
+  }
+
+  /* Generic color mapping for content variables */
+  [data-light-theme=light_high_contrast],
+  [data-dark-theme=dark] {
+    --avatar-border-color: var(--avatar-borderColor);
+    --list-item-hover--border-color: var(--control-transparent-borderColor-hover);
+    --list-item-hover--color: var(--fgColor-default);
+    --ck-color-toolbar-border: var(--borderColor-default);
+    --ck-color-list-background: var(--overlay-bgColor);
+    --ck-color-base-border: var(--borderColor-default);
+    --ck-color-button-default-hover-background: var(--button-default-bgColor-hover);
+    --ck-color-toolbar-background: var(--body-background);
+    --ck-color-text: var(--body-font-color);
+    --ck-color-dropdown-panel-background: var(--overlay-bgColor);
+    --ck-color-list-button-hover-background: var(--control-transparent-bgColor-hover);
+    --ck-color-panel-background: var(--overlay-bgColor);
+    --ck-color-input-background: var(--overlay-bgColor);
+    --status-selector-border-color: var(--button-default-borderColor-rest);
+    --grid-background-color: var(--bgColor-inset);
+    --button--active-border-color: var(--button-default-borderColor-rest);
+    --button--font-color: var(--button-default-fgColor-rest);
+    --button--background-hover-color: var(--button-default-bgColor-hover);
+    --button--background-color: var(--button-default-bgColor-rest);
+    --header-border-bottom-width: 1px;
+    --header-bg-color: var(--page-header-bgColor);
+    --header-item-font-color: var(--fgColor-default);
+    --header-item-bg-hover-color: var(--control-transparent-bgColor-hover);
+    --header-item-font-hover-color: var(--fgColor-default);
+    --header-border-bottom-color: var(--borderColor-muted) !important;
+    --main-menu-hover-font-color: var(--fgColor-default);
+    --main-menu-bg-selected-background: var(--control-transparent-bgColor-hover);
+    --main-menu-bg-hover-background: var(--control-transparent-bgColor-hover);
+    --main-menu-border-color: var(--borderColor-muted);
+    --main-menu-resizer-color: var(--borderColor-muted);
+    --main-menu-fieldset-header-color: var(--fgColor-muted) !important;
+    --main-menu-border-width: 1px;
+    --main-menu-font-color: var(--fgColor-default);
+    --main-menu-selected-font-color: var(--fgColor-default);
+    --main-menu-bg-color: var(--page-header-bgColor);
+  }
+
+  /* For accessibility themes we are also overriding the header and the sidebar */
+  [data-light-theme=light_high_contrast] {
+    --main-menu-hover-border-color: var(--fgColor-default) !important;
+    --main-menu-bg-selected-border: var(--fgColor-default);
+    --accent-color: var(--fgColor-accent);
+    --link-text-decoration: underline;
+    --button--primary-font-color:  var(--button-primary-fgColor-rest);
+    --button--primary-background-hover-color: var(--button-primary-bgColor-hover);
+    --button--primary-background-color: var(--button-primary-bgColor-rest);
+    --primary-button-color: var(--button-primary-bgColor-rest);
+  }
+
+  /* For dark themes we are using a lighter version of the accent and primary color. Otherwise they will not be seen */
+  [data-dark-theme=dark] {
+      --accent-color: var(--accent-color--dark-mode);
+      --content-icon-color: var(--accent-color--dark-mode);
+      --primary-button-color: var(--primary-button-color--dark-mode);
+      --button--primary-background-disabled-color: var(--primary-button-color--major1);
+      --button--primary-border-disabled-color: var(--primary-button-color--major1);
+      --main-menu-bg-color: var(--overlay-bgColor);
+      --type-form-conf-attribute--background: var(--overlay-bgColor);
+      --select-arrow-bg-color-url: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+      --ck-color-mention-text: var(--display-red-fgColor);
+      --ck-color-button-on-background: var(--button-default-bgColor-active);
+      --ck-color-button-default-active-background: var(--button-default-bgColor-active);
+      --ck-color-button-on-hover-background: var(--button-default-bgColor-hover);
+      --ck-color-button-on-disabled-background: var(--button-default-bgColor-disabled);
+  }
+</style>
+
+
+  <!-- project specific tags -->
+  
+
+  <!-- page specific tags -->
+  
+  <meta name="current_menu_item" content="home"/>
+  <meta name="turbo-prefetch" content="false">
+</head>
+<body
+  class="theme-core_design controller-homescreen action-index ee-banners-visible env-production bcf-deactivated __overflowing_element_container __overflowing_body"
+  data-relative_url_root="/"
+  data-overflowing-identifier=".__overflowing_body"
+  data-rendered-at="2024-09-22T23:21:10Z"
+  data-controller="application"
+  data-color-mode=light data-light-theme=light
+>
+<div class="warning-bar--wrapper">
+  
+  
+  
+  
+</div>
+
+<noscript>
+  <div class="top-shelf">
+    <p>
+      <span>
+        <i class="icon3 icon-warning"  aria-hidden="true"></i>
+        <strong>JavaScript disabled</strong>
+      </span>
+      You need to activate JavaScript in order to use OpenProject!
+      <a href="http://www.enable-javascript.com/" target="_blank">Learn more</a>
+    </p>
+  </div>
+</noscript>
+<opce-toasts-container></opce-toasts-container>
+<opce-modal-overlay></opce-modal-overlay>
+<opce-spot-drop-modal-portal></opce-spot-drop-modal-portal>
+<div id="wrapper" style="display:none" class="can-hide-navigation">
+    <header class="op-app-header">
+      <div class="op-app-header--start">
+        <h1 class="hidden-for-sighted">
+          Top Menu
+        </h1>
+        <opce-main-menu-toggle></opce-main-menu-toggle>
+        <a href="" class="hidden-for-sighted skip-navigation-link"
+           id="skip-navigation--content"
+           aria-label="Click here to skip over the menu and go to the content">
+          Jump to content
+        </a>
+        <ul class="op-app-menu op-app-menu_drop-left"><li class="op-app-menu--item"><opce-header-project-select class="op-angular-component"></opce-header-project-select></li></ul>
+      </div>
+      <div class="op-app-header--center">
+        <div class="op-logo"><a class="op-logo--link " href="http://project-test.debortoli.network/">Home</a></div>
+      </div>
+      <div class="op-app-header--end">
+        
+        <div class="op-app-search"><opce-global-search data-placeholder="&quot;Search in OpenProject&quot;" class="op-angular-component"></opce-global-search></div><ul class="op-app-menu"><action-menu data-select-variant="none" data-view-component="true" class="op-app-menu--item">
+  <focus-group direction="vertical" mnemonics retain>
+    <button title="Modules" id="op-app-header--modules-menu-button" popovertarget="op-app-header--modules-menu-overlay" aria-controls="op-app-header--modules-menu-list" aria-haspopup="true" aria-labelledby="tooltip-f6f122f5-8497-4ca2-98f9-16ef234e71a0" type="button" data-view-component="true" class="Button Button--iconOnly Button--invisible Button--medium op-app-menu--item-action op-app-header--primer-button hidden-for-mobile">  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-op-grid-menu Button-visual">
+    <path d="M1 12.4A1.4 1.4 0 0 1 2.4 11h1.2A1.4 1.4 0 0 1 5 12.4v1.2A1.4 1.4 0 0 1 3.6 15H2.4A1.4 1.4 0 0 1 1 13.6Zm1.4-.2a.2.2 0 0 0-.2.2v1.2c0 .11.09.2.2.2h1.2a.2.2 0 0 0 .2-.2v-1.2a.2.2 0 0 0-.2-.2Zm0-6.2h1.2A1.4 1.4 0 0 1 5 7.4v1.2A1.4 1.4 0 0 1 3.6 10H2.4A1.4 1.4 0 0 1 1 8.6V7.4A1.4 1.4 0 0 1 2.4 6Zm-.2 1.4v1.2c0 .11.09.2.2.2h1.2a.2.2 0 0 0 .2-.2V7.4a.2.2 0 0 0-.2-.2H2.4a.2.2 0 0 0-.2.2ZM2.4 1h1.2A1.4 1.4 0 0 1 5 2.4v1.2A1.4 1.4 0 0 1 3.6 5H2.4A1.4 1.4 0 0 1 1 3.6V2.4A1.4 1.4 0 0 1 2.4 1Zm-.2 1.4v1.2c0 .11.09.2.2.2h1.2a.2.2 0 0 0 .2-.2V2.4a.2.2 0 0 0-.2-.2H2.4a.2.2 0 0 0-.2.2ZM7.4 1h1.2A1.4 1.4 0 0 1 10 2.4v1.2A1.4 1.4 0 0 1 8.6 5H7.4A1.4 1.4 0 0 1 6 3.6V2.4A1.4 1.4 0 0 1 7.4 1Zm-.2 1.4v1.2c0 .11.09.2.2.2h1.2a.2.2 0 0 0 .2-.2V2.4a.2.2 0 0 0-.2-.2H7.4a.2.2 0 0 0-.2.2ZM6 7.4A1.4 1.4 0 0 1 7.4 6h1.2A1.4 1.4 0 0 1 10 7.4v1.2A1.4 1.4 0 0 1 8.6 10H7.4A1.4 1.4 0 0 1 6 8.6Zm1.4-.2a.2.2 0 0 0-.2.2v1.2c0 .11.09.2.2.2h1.2a.2.2 0 0 0 .2-.2V7.4a.2.2 0 0 0-.2-.2Zm0 3.8h1.2a1.4 1.4 0 0 1 1.4 1.4v1.2A1.4 1.4 0 0 1 8.6 15H7.4A1.4 1.4 0 0 1 6 13.6v-1.2A1.4 1.4 0 0 1 7.4 11Zm-.2 1.4v1.2c0 .11.09.2.2.2h1.2a.2.2 0 0 0 .2-.2v-1.2a.2.2 0 0 0-.2-.2H7.4a.2.2 0 0 0-.2.2Zm3.8-10A1.4 1.4 0 0 1 12.4 1h1.2A1.4 1.4 0 0 1 15 2.4v1.2A1.4 1.4 0 0 1 13.6 5h-1.2A1.4 1.4 0 0 1 11 3.6Zm1.4-.2a.2.2 0 0 0-.2.2v1.2c0 .11.09.2.2.2h1.2a.2.2 0 0 0 .2-.2V2.4a.2.2 0 0 0-.2-.2Zm0 3.8h1.2A1.4 1.4 0 0 1 15 7.4v1.2a1.4 1.4 0 0 1-1.4 1.4h-1.2A1.4 1.4 0 0 1 11 8.6V7.4A1.4 1.4 0 0 1 12.4 6Zm-.2 1.4v1.2c0 .11.09.2.2.2h1.2a.2.2 0 0 0 .2-.2V7.4a.2.2 0 0 0-.2-.2h-1.2a.2.2 0 0 0-.2.2Zm-1.2 5a1.4 1.4 0 0 1 1.4-1.4h1.2a1.4 1.4 0 0 1 1.4 1.4v1.2a1.4 1.4 0 0 1-1.4 1.4h-1.2a1.4 1.4 0 0 1-1.4-1.4Zm1.4-.2a.2.2 0 0 0-.2.2v1.2c0 .11.09.2.2.2h1.2a.2.2 0 0 0 .2-.2v-1.2a.2.2 0 0 0-.2-.2Z"></path>
+</svg>
+</button><tool-tip id="tooltip-f6f122f5-8497-4ca2-98f9-16ef234e71a0" for="op-app-header--modules-menu-button" popover="manual" data-direction="s" data-type="label" data-view-component="true" class="sr-only position-absolute">Modules</tool-tip>
+
+
+<anchored-position id="op-app-header--modules-menu-overlay" anchor="op-app-header--modules-menu-button" align="end" side="outside-bottom" anchor-offset="normal" popover="auto" data-view-component="true">
+  <div data-view-component="true" class="Overlay Overlay--size-auto">
+    
+      <div data-view-component="true" class="Overlay-body Overlay-body--paddingNone">          <action-list>
+  <div data-view-component="true">
+    <ul aria-labelledby="op-app-header--modules-menu-button" id="op-app-header--modules-menu-list" role="menu" data-view-component="true" class="ActionListWrap--inset ActionListWrap">
+        <action-list>
+  <div data-view-component="true">
+    <ul id="group-b6587436-a24f-459a-8d5a-292416b65249" role="group" data-view-component="true" class="ActionListWrap">
+        <li data-targets="action-list.items" role="none" data-view-component="true" class="ActionListItem">
+    
+    
+    <a id="item-0ad31b93-964c-4ac9-aaa2-f6ea342c057a" href="/projects" role="menuitem" data-view-component="true" class="ActionListContent ActionListContent--visual16">
+        <span class="ActionListItem-visual ActionListItem-visual--leading">
+          <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-project">
+    <path d="M1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0 1 14.25 16H1.75A1.75 1.75 0 0 1 0 14.25V1.75C0 .784.784 0 1.75 0ZM1.5 1.75v12.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25ZM11.75 3a.75.75 0 0 1 .75.75v7.5a.75.75 0 0 1-1.5 0v-7.5a.75.75 0 0 1 .75-.75Zm-8.25.75a.75.75 0 0 1 1.5 0v5.5a.75.75 0 0 1-1.5 0ZM8 3a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 3Z"></path>
+</svg>
+        </span>
+      
+        <span data-view-component="true" class="ActionListItem-label">
+          Projects
+</span>      
+</a>
+  
+</li>
+        <li data-targets="action-list.items" role="none" data-view-component="true" class="ActionListItem">
+    
+    
+    <a id="item-eadd7860-7e0b-4ed7-86f9-3f4ce670899b" href="/activity" role="menuitem" data-view-component="true" class="ActionListContent ActionListContent--visual16">
+        <span class="ActionListItem-visual ActionListItem-visual--leading">
+          <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-history">
+    <path d="m.427 1.927 1.215 1.215a8.002 8.002 0 1 1-1.6 5.685.75.75 0 1 1 1.493-.154 6.5 6.5 0 1 0 1.18-4.458l1.358 1.358A.25.25 0 0 1 3.896 6H.25A.25.25 0 0 1 0 5.75V2.104a.25.25 0 0 1 .427-.177ZM7.75 4a.75.75 0 0 1 .75.75v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5A.75.75 0 0 1 7.75 4Z"></path>
+</svg>
+        </span>
+      
+        <span data-view-component="true" class="ActionListItem-label">
+          Activity
+</span>      
+</a>
+  
+</li>
+        <li data-targets="action-list.items" role="none" data-view-component="true" class="ActionListItem">
+    
+    
+    <a id="item-43c5a0de-f469-4a8d-90fd-b3894cb9bece" href="/work_packages" role="menuitem" data-view-component="true" class="ActionListContent ActionListContent--visual16">
+        <span class="ActionListItem-visual ActionListItem-visual--leading">
+          <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-op-view-list">
+    <path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5c0 .464-.184.909-.513 1.237A1.746 1.746 0 0 1 14.25 16H1.75c-.464 0-.909-.184-1.237-.513A1.746 1.746 0 0 1 0 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25Z"></path><path d="M3.22 12.22a.747.747 0 0 1 .53-.22h8.5c.199 0 .39.079.53.22a.747.747 0 0 1 0 1.06.747.747 0 0 1-.53.22h-8.5a.747.747 0 0 1-.53-.22.747.747 0 0 1 0-1.06Zm0-6A.747.747 0 0 1 3.75 6h8.5c.199 0 .39.079.53.22a.747.747 0 0 1 0 1.06.747.747 0 0 1-.53.22h-8.5a.747.747 0 0 1-.53-.22.747.747 0 0 1 0-1.06Zm0 3A.747.747 0 0 1 3.75 9h8.5c.199 0 .39.079.53.22a.747.747 0 0 1 0 1.06.747.747 0 0 1-.53.22h-8.5a.747.747 0 0 1-.53-.22.747.747 0 0 1 0-1.06Zm0-6A.747.747 0 0 1 3.75 3h8.5c.199 0 .39.079.53.22a.747.747 0 0 1 0 1.06.747.747 0 0 1-.53.22h-8.5a.747.747 0 0 1-.53-.22.747.747 0 0 1 0-1.06Z"></path>
+</svg>
+        </span>
+      
+        <span data-view-component="true" class="ActionListItem-label">
+          Work packages
+</span>      
+</a>
+  
+</li>
+        <li data-targets="action-list.items" role="none" data-view-component="true" class="ActionListItem">
+    
+    
+    <a id="item-ca9d3f62-7b3e-4016-946c-11ecda4d0833" href="/gantt" role="menuitem" data-view-component="true" class="ActionListContent ActionListContent--visual16">
+        <span class="ActionListItem-visual ActionListItem-visual--leading">
+          <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-op-view-timeline">
+    <path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5c0 .464-.184.909-.513 1.237A1.746 1.746 0 0 1 14.25 16H1.75c-.464 0-.909-.184-1.237-.513A1.746 1.746 0 0 1 0 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25Z"></path><path d="M.22 12.22A.747.747 0 0 1 .75 12h10.5c.199 0 .39.079.53.22a.747.747 0 0 1 0 1.06.747.747 0 0 1-.53.22H.75a.747.747 0 0 1-.53-.22.747.747 0 0 1 0-1.06Zm4-6A.747.747 0 0 1 4.75 6h10.5c.199 0 .39.079.53.22a.747.747 0 0 1 0 1.06.747.747 0 0 1-.53.22H4.75a.747.747 0 0 1-.53-.22.747.747 0 0 1 0-1.06Zm2 3A.747.747 0 0 1 6.75 9h2.5c.199 0 .39.079.53.22a.747.747 0 0 1 0 1.06.747.747 0 0 1-.53.22h-2.5a.747.747 0 0 1-.53-.22.747.747 0 0 1 0-1.06Zm-6-6A.747.747 0 0 1 .75 3h5.5c.199 0 .39.079.53.22a.747.747 0 0 1 0 1.06.747.747 0 0 1-.53.22H.75a.747.747 0 0 1-.53-.22.747.747 0 0 1 0-1.06Z"></path>
+</svg>
+        </span>
+      
+        <span data-view-component="true" class="ActionListItem-label">
+          Gantt charts
+</span>      
+</a>
+  
+</li>
+        <li data-targets="action-list.items" role="none" data-view-component="true" class="ActionListItem">
+    
+    
+    <a id="item-f83d8f89-a4b5-4e1d-b223-1731eeac6a15" href="/news" role="menuitem" data-view-component="true" class="ActionListContent ActionListContent--visual16">
+        <span class="ActionListItem-visual ActionListItem-visual--leading">
+          <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-megaphone">
+    <path d="M3.25 9a.75.75 0 0 1 .75.75c0 2.142.456 3.828.733 4.653a.122.122 0 0 0 .05.064.212.212 0 0 0 .117.033h1.31c.085 0 .18-.042.258-.152a.45.45 0 0 0 .075-.366A16.743 16.743 0 0 1 6 9.75a.75.75 0 0 1 1.5 0c0 1.588.25 2.926.494 3.85.293 1.113-.504 2.4-1.783 2.4H4.9c-.686 0-1.35-.41-1.589-1.12A16.4 16.4 0 0 1 2.5 9.75.75.75 0 0 1 3.25 9Z"></path><path d="M0 6a4 4 0 0 1 4-4h2.75a.75.75 0 0 1 .75.75v6.5a.75.75 0 0 1-.75.75H4a4 4 0 0 1-4-4Zm4-2.5a2.5 2.5 0 1 0 0 5h2v-5Z"></path><path d="M15.59.082A.75.75 0 0 1 16 .75v10.5a.75.75 0 0 1-1.189.608l-.002-.001h.001l-.014-.01a5.775 5.775 0 0 0-.422-.25 10.63 10.63 0 0 0-1.469-.64C11.576 10.484 9.536 10 6.75 10a.75.75 0 0 1 0-1.5c2.964 0 5.174.516 6.658 1.043.423.151.787.302 1.092.443V2.014c-.305.14-.669.292-1.092.443C11.924 2.984 9.713 3.5 6.75 3.5a.75.75 0 0 1 0-1.5c2.786 0 4.826-.484 6.155-.957.665-.236 1.154-.47 1.47-.64.144-.077.284-.161.421-.25l.014-.01a.75.75 0 0 1 .78-.061Z"></path>
+</svg>
+        </span>
+      
+        <span data-view-component="true" class="ActionListItem-label">
+          News
+</span>      
+</a>
+  
+</li>
+</ul>    
+</div></action-list>
+
+</ul>    
+</div></action-list>
+
+
+</div>
+      
+</div></anchored-position>  </focus-group>
+</action-menu><li class="op-app-menu--item op-app-menu--item_has-dropdown op-app-help hidden-for-mobile"><a title="Help" class="op-app-menu--item-action" aria-haspopup="true" href="#"><svg aria-hidden="true" height="24" viewBox="0 0 24 24" version="1.1" width="24" data-view-component="true" class="octicon octicon-question">
+    <path d="M10.97 8.265a1.45 1.45 0 0 0-.487.57.75.75 0 0 1-1.341-.67c.2-.402.513-.826.997-1.148C10.627 6.69 11.244 6.5 12 6.5c.658 0 1.369.195 1.934.619a2.45 2.45 0 0 1 1.004 2.006c0 1.033-.513 1.72-1.027 2.215-.19.183-.399.358-.579.508l-.147.123a4.329 4.329 0 0 0-.435.409v1.37a.75.75 0 1 1-1.5 0v-1.473c0-.237.067-.504.247-.736.22-.28.486-.517.718-.714l.183-.153.001-.001c.172-.143.324-.27.47-.412.368-.355.569-.676.569-1.136a.953.953 0 0 0-.404-.806C12.766 8.118 12.384 8 12 8c-.494 0-.814.121-1.03.265ZM13 17a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"></path>
+</svg></a><ul style="display:none" class="op-app-menu--dropdown op-menu"><li class="op-menu--item"><span class="op-menu--headline" title="Getting started">Getting started</span></li><li
+  class="op-menu--item"
+  data-augmented-model-wrapper
+  data-activation-selector=".onboarding-modal--activation-link"
+  data-modal-iframe-url="https://player.vimeo.com/video/163426858?autoplay=1"
+  data-modal-class-name="onboarding-modal"
+>
+  <a title="Introduction video" class="op-menu--item-action onboarding-modal--activation-link" href="">Introduction video</a>
+  
+<div class="modal-delivery-element">
+  <div class="spot-modal--header">
+    <span class="spot-icon spot-icon_user"></span>
+    <span id="spotModalTitle">Welcome to OpenProject</span>
+  </div>
+  <div class="spot-divider"></div>
+  <div class="onboarding--main spot-modal--body spot-container">
+    <div class="onboarding--video-block">
+      <div class="onboarding--video-text">
+        <span>Get a quick overview of project management and team collaboration with OpenProject. You can restart this video from the help menu.</span>
+      </div>
+      <div class="onboarding--video iframe-target-wrapper">
+      </div>
+    </div>
+  </div>
+
+  <div class="onboarding--footer spot-action-bar">
+    <div class="spot-action-bar--right">
+      <button
+        class="button button_no-margin spot-action-bar--action spot-modal--cancel-button"
+        dynamic-content-modal-close-button
+        title=Close
+      >Close</button>
+    </div>
+  </div>
+</div>
+
+</li>
+<hr class="op-menu--separator"></hr><li class="op-menu--item"><span class="op-menu--headline" title="Help and support">Help and support</span></li><li class="op-menu--item"><a title="Upgrade to Enterprise edition" target="_blank" class="op-menu--item-action" rel="noopener" href="https://www.openproject.org/enterprise-edition/?utm_source=unknown&amp;utm_medium=op-instance&amp;utm_campaign=ee-upsale-help-menu">Upgrade to Enterprise edition</a></li><li class="op-menu--item"><a title="User guides" target="_blank" class="op-menu--item-action" rel="noopener" href="https://www.openproject.org/docs/user-guide/">User guides</a></li><li class="op-menu--item"><a title="Videos" class="op-menu--item-action" target="_blank" rel="noopener" href="https://www.youtube.com/c/OpenProjectCommunity">Videos</a></li><li class="op-menu--item"><a title="Shortcuts" target="_blank" class="op-menu--item-action" rel="noopener" href="https://www.openproject.org/docs/user-guide/keyboard-shortcuts-access-keys/">Shortcuts</a></li><li class="op-menu--item"><a title="Community forum" target="_blank" class="op-menu--item-action" rel="noopener" href="https://community.openproject.org/projects/openproject/forums">Community forum</a></li><li class="op-menu--item"><a title="Enterprise support" target="_blank" class="op-menu--item-action" rel="noopener" href="https://www.openproject.org/pricing/#support">Enterprise support</a></li><hr class="op-menu--separator"></hr><li class="op-menu--item"><span class="op-menu--headline" title="Additional resources">Additional resources</span></li><li class="op-menu--item"><a title="Data privacy and security policy" target="_blank" class="op-menu--item-action" rel="noopener" href="https://www.openproject.org/legal/privacy/">Data privacy and security policy</a></li><li class="op-menu--item"><a title="Digital accessibility (DE)" target="_blank" class="op-menu--item-action" rel="noopener" href="https://www.openproject.org/de/rechtliches/erklaerung-zur-digitalen-barrierefreiheit/">Digital accessibility (DE)</a></li><li class="op-menu--item"><a title="OpenProject website" target="_blank" class="op-menu--item-action" rel="noopener" href="https://www.openproject.org/?utm_source=unknown&amp;utm_medium=op-instance&amp;utm_campaign=website-help-menu">OpenProject website</a></li><li class="op-menu--item"><a title="Security alerts / Newsletter" target="_blank" class="op-menu--item-action" rel="noopener" href="https://www.openproject.org/newsletter/?utm_source=unknown&amp;utm_medium=op-instance&amp;utm_campaign=newsletter-help-menu">Security alerts / Newsletter</a></li><li class="op-menu--item"><a title="OpenProject blog" target="_blank" class="op-menu--item-action" rel="noopener" href="https://www.openproject.org/blog">OpenProject blog</a></li><li class="op-menu--item"><a title="Release notes" target="_blank" class="op-menu--item-action" rel="noopener" href="https://www.openproject.org/docs/release-notes/">Release notes</a></li><li class="op-menu--item"><a title="Report a bug" target="_blank" class="op-menu--item-action" rel="noopener" href="https://www.openproject.org/docs/development/report-a-bug/">Report a bug</a></li><li class="op-menu--item"><a title="Development roadmap" target="_blank" class="op-menu--item-action" rel="noopener" href="https://community.openproject.org/projects/openproject/roadmap">Development roadmap</a></li><li class="op-menu--item"><a title="Add and edit translations" target="_blank" class="op-menu--item-action" rel="noopener" href="https://www.openproject.org/docs/development/translate-openproject/">Add and edit translations</a></li><li class="op-menu--item"><a title="API documentation" target="_blank" class="op-menu--item-action" rel="noopener" href="https://www.openproject.org/docs/api/">API documentation</a></li></ul></li><li class="op-app-menu--item op-app-menu--item_has-dropdown "><a class="op-app-menu--item-action" title="Sign in" href="/login"><span class="op-app-menu--item-title hidden-for-mobile">Sign in</span><i class="op-app-menu--item-dropdown-indicator button--dropdown-indicator hidden-for-mobile"></i><i class="icon2 icon-user hidden-for-desktop"></i></a><ul style="display:none" class="op-app-menu--dropdown ">
+<div id="nav-login-content">
+  <form autocomplete="off" class="-vertical form" action="/login" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" autocomplete="off" /><input type="hidden" name="authenticity_token" value="GT44XkZ94mTgigIr_MMxnajwTe3NrFlN7oniQfUcmdPdGW1pflX0YkQAfOaDvEMJUVHHyhRW1dj0Lg2ZfzFDeQ" autocomplete="off" />
+    <input type="hidden" name="back_url" id="back_url" value="http://project-test.debortoli.network/" autocomplete="off" />
+
+    <div class="grid-block">
+      <div class="form--field -required">
+        <label class="form--label" title="Username" for="username-pulldown">Username</label>
+        <div class="form--field-container">
+          <span class="form--text-field-container"><input type="text" name="username" id="username-pulldown" tabindex="1" autocapitalize="none" class="form--text-field" /></span>
+        </div>
+        <div class="form--field-extra-actions">
+              <a title="Create a new account" href="/account/register">Create a new account</a>
+        </div>
+      </div>
+
+      <div class="form--field -required">
+        <label class="form--label" title="Password" for="password-pulldown">Password</label>
+        <div class="form--field-container">
+          <span class="form--text-field-container"><input type="password" name="password" id="password-pulldown" tabindex="1" class="form--text-field -password" /></span>
+        </div>
+        <div class="form--field-extra-actions">
+            <a href="/account/lost_password">Forgot your password?</a>
+        </div>
+      </div>
+
+      <div class="form--field">
+        <label class="form--label" for="login-pulldown">
+          &nbsp;
+        </label>
+        <input type="submit" name="login" id="login-pulldown"
+               value="Sign in" class="button -primary button_no-margin" tabindex="1" />
+      </div>
+    </div>
+
+    
+
+</form></div>
+</ul></li></ul>
+      </div>
+    </header>
+  <div id="main"
+       class="can-hide-navigation">
+      <div
+        id="main-menu"
+        class="main-menu"
+        data-controller="menus--main"
+        data-application-target="dynamic"
+      >
+        <h1 class="hidden-for-sighted">Side Menu</h1>
+        <opce-main-menu-resizer></opce-main-menu-resizer>
+        <div id="menu-sidebar">
+          <ul class="menu_root open" data-menus--main-target="root"><li class="main-menu-item" data-name="home"><a class="home-menu-item selected op-menu--item-action" title="You are here: Home" data-test-selector="op-menu--item-action" href="http://project-test.debortoli.network/"><svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-home mr-3">
+    <path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
+</svg><span class="op-menu--item-title"><span class="ellipsis">Home</span></span></a></li>
+<li data-name="projects" data-menus--main-target="item"><div class="main-item-wrapper" id="projects-wrapper"><a class="projects-menu-item op-menu--item-action" title="Projects" data-test-selector="op-menu--item-action" href="http://project-test.debortoli.network/projects"><svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-project mr-3">
+    <path d="M1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0 1 14.25 16H1.75A1.75 1.75 0 0 1 0 14.25V1.75C0 .784.784 0 1.75 0ZM1.5 1.75v12.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25ZM11.75 3a.75.75 0 0 1 .75.75v7.5a.75.75 0 0 1-1.5 0v-7.5a.75.75 0 0 1 .75-.75Zm-8.25.75a.75.75 0 0 1 1.5 0v5.5a.75.75 0 0 1-1.5 0ZM8 3a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 3Z"></path>
+</svg><span class="op-menu--item-title"><span class="ellipsis">Projects</span></span></a><button class="toggler main-menu-toggler" type="button" data-action="menus--main#descend" data-test-selector="main-menu-toggler--projects"><svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-arrow-right">
+    <path d="M8.22 2.97a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l2.97-2.97H3.75a.75.75 0 0 1 0-1.5h7.44L8.22 4.03a.75.75 0 0 1 0-1.06Z"></path>
+</svg></button></div>
+<div class="main-menu--children-menu-header"><a title="Up" class="main-menu--arrow-left-to-project" data-action="menus--main#ascend" data-tour-selector="main-menu--arrow-left_projects"><svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-arrow-left">
+    <path d="M7.78 12.53a.75.75 0 0 1-1.06 0L2.47 8.28a.75.75 0 0 1 0-1.06l4.25-4.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L4.81 7h7.44a.75.75 0 0 1 0 1.5H4.81l2.97 2.97a.75.75 0 0 1 0 1.06Z"></path>
+</svg></a><a class="main-menu--parent-node ellipsis" href="http://project-test.debortoli.network/projects">Projects</a></div><ul class="main-menu--children"><li class="partial main-menu-item" data-name="projects_query_select"><turbo-frame data-turbo="false" loading="lazy" id="projects_sidemenu" src="/projects/menu?controller_path=homescreen" target="_top"></turbo-frame>
+</li></ul>
+</li>
+<li data-name="activity" data-menus--main-target="item"><div class="main-item-wrapper" id="activity-wrapper"><a class="activity-menu-item op-menu--item-action" title="Activity" data-test-selector="op-menu--item-action" href="http://project-test.debortoli.network/activity"><svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-history mr-3">
+    <path d="m.427 1.927 1.215 1.215a8.002 8.002 0 1 1-1.6 5.685.75.75 0 1 1 1.493-.154 6.5 6.5 0 1 0 1.18-4.458l1.358 1.358A.25.25 0 0 1 3.896 6H.25A.25.25 0 0 1 0 5.75V2.104a.25.25 0 0 1 .427-.177ZM7.75 4a.75.75 0 0 1 .75.75v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5A.75.75 0 0 1 7.75 4Z"></path>
+</svg><span class="op-menu--item-title"><span class="ellipsis">Activity</span></span></a><button class="toggler main-menu-toggler" type="button" data-action="menus--main#descend" data-test-selector="main-menu-toggler--activity"><svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-arrow-right">
+    <path d="M8.22 2.97a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l2.97-2.97H3.75a.75.75 0 0 1 0-1.5h7.44L8.22 4.03a.75.75 0 0 1 0-1.06Z"></path>
+</svg></button></div>
+<div class="main-menu--children-menu-header"><a title="Up" class="main-menu--arrow-left-to-project" data-action="menus--main#ascend" data-tour-selector="main-menu--arrow-left_activity"><svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-arrow-left">
+    <path d="M7.78 12.53a.75.75 0 0 1-1.06 0L2.47 8.28a.75.75 0 0 1 0-1.06l4.25-4.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L4.81 7h7.44a.75.75 0 0 1 0 1.5H4.81l2.97 2.97a.75.75 0 0 1 0 1.06Z"></path>
+</svg></a><a class="main-menu--parent-node ellipsis" href="http://project-test.debortoli.network/activity">Activity</a></div><ul class="main-menu--children"><li class="partial main-menu-item" data-name="activity_filters"><turbo-frame data-turbo="false" loading="lazy" id="activity_menu" src="/activity/menu">
+</turbo-frame></li></ul>
+</li>
+<li data-name="work_packages" data-menus--main-target="item"><div class="main-item-wrapper" id="work_packages-wrapper"><a class="work-packages-menu-item op-menu--item-action" title="Work packages" data-test-selector="op-menu--item-action" href="http://project-test.debortoli.network/work_packages"><svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-op-view-list mr-3">
+    <path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5c0 .464-.184.909-.513 1.237A1.746 1.746 0 0 1 14.25 16H1.75c-.464 0-.909-.184-1.237-.513A1.746 1.746 0 0 1 0 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25Z"></path><path d="M3.22 12.22a.747.747 0 0 1 .53-.22h8.5c.199 0 .39.079.53.22a.747.747 0 0 1 0 1.06.747.747 0 0 1-.53.22h-8.5a.747.747 0 0 1-.53-.22.747.747 0 0 1 0-1.06Zm0-6A.747.747 0 0 1 3.75 6h8.5c.199 0 .39.079.53.22a.747.747 0 0 1 0 1.06.747.747 0 0 1-.53.22h-8.5a.747.747 0 0 1-.53-.22.747.747 0 0 1 0-1.06Zm0 3A.747.747 0 0 1 3.75 9h8.5c.199 0 .39.079.53.22a.747.747 0 0 1 0 1.06.747.747 0 0 1-.53.22h-8.5a.747.747 0 0 1-.53-.22.747.747 0 0 1 0-1.06Zm0-6A.747.747 0 0 1 3.75 3h8.5c.199 0 .39.079.53.22a.747.747 0 0 1 0 1.06.747.747 0 0 1-.53.22h-8.5a.747.747 0 0 1-.53-.22.747.747 0 0 1 0-1.06Z"></path>
+</svg><span class="op-menu--item-title"><span class="ellipsis">Work packages</span></span></a><button class="toggler main-menu-toggler" type="button" data-action="menus--main#descend" data-test-selector="main-menu-toggler--work_packages"><svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-arrow-right">
+    <path d="M8.22 2.97a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l2.97-2.97H3.75a.75.75 0 0 1 0-1.5h7.44L8.22 4.03a.75.75 0 0 1 0-1.06Z"></path>
+</svg></button></div>
+<div class="main-menu--children-menu-header"><a title="Up" class="main-menu--arrow-left-to-project" data-action="menus--main#ascend" data-tour-selector="main-menu--arrow-left_work_packages"><svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-arrow-left">
+    <path d="M7.78 12.53a.75.75 0 0 1-1.06 0L2.47 8.28a.75.75 0 0 1 0-1.06l4.25-4.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L4.81 7h7.44a.75.75 0 0 1 0 1.5H4.81l2.97 2.97a.75.75 0 0 1 0 1.06Z"></path>
+</svg></a><a class="main-menu--parent-node ellipsis" href="http://project-test.debortoli.network/work_packages">Work packages</a></div><ul class="main-menu--children"><li class="partial main-menu-item" data-name="work_packages_query_select"><turbo-frame data-turbo="false" loading="lazy" id="work_packages_sidemenu" src="/work_packages/menu" target="_top"></turbo-frame>
+</li></ul>
+</li>
+<li data-name="gantt" data-menus--main-target="item"><div class="main-item-wrapper" id="gantt-wrapper"><a class="gantt-menu-item op-menu--item-action" title="Gantt charts" data-test-selector="op-menu--item-action" href="http://project-test.debortoli.network/gantt"><svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-op-view-timeline mr-3">
+    <path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5c0 .464-.184.909-.513 1.237A1.746 1.746 0 0 1 14.25 16H1.75c-.464 0-.909-.184-1.237-.513A1.746 1.746 0 0 1 0 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25Z"></path><path d="M.22 12.22A.747.747 0 0 1 .75 12h10.5c.199 0 .39.079.53.22a.747.747 0 0 1 0 1.06.747.747 0 0 1-.53.22H.75a.747.747 0 0 1-.53-.22.747.747 0 0 1 0-1.06Zm4-6A.747.747 0 0 1 4.75 6h10.5c.199 0 .39.079.53.22a.747.747 0 0 1 0 1.06.747.747 0 0 1-.53.22H4.75a.747.747 0 0 1-.53-.22.747.747 0 0 1 0-1.06Zm2 3A.747.747 0 0 1 6.75 9h2.5c.199 0 .39.079.53.22a.747.747 0 0 1 0 1.06.747.747 0 0 1-.53.22h-2.5a.747.747 0 0 1-.53-.22.747.747 0 0 1 0-1.06Zm-6-6A.747.747 0 0 1 .75 3h5.5c.199 0 .39.079.53.22a.747.747 0 0 1 0 1.06.747.747 0 0 1-.53.22H.75a.747.747 0 0 1-.53-.22.747.747 0 0 1 0-1.06Z"></path>
+</svg><span class="op-menu--item-title"><span class="ellipsis">Gantt charts</span></span></a><button class="toggler main-menu-toggler" type="button" data-action="menus--main#descend" data-test-selector="main-menu-toggler--gantt"><svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-arrow-right">
+    <path d="M8.22 2.97a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l2.97-2.97H3.75a.75.75 0 0 1 0-1.5h7.44L8.22 4.03a.75.75 0 0 1 0-1.06Z"></path>
+</svg></button></div>
+<div class="main-menu--children-menu-header"><a title="Up" class="main-menu--arrow-left-to-project" data-action="menus--main#ascend" data-tour-selector="main-menu--arrow-left_gantt"><svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-arrow-left">
+    <path d="M7.78 12.53a.75.75 0 0 1-1.06 0L2.47 8.28a.75.75 0 0 1 0-1.06l4.25-4.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L4.81 7h7.44a.75.75 0 0 1 0 1.5H4.81l2.97 2.97a.75.75 0 0 1 0 1.06Z"></path>
+</svg></a><a class="main-menu--parent-node ellipsis" href="http://project-test.debortoli.network/gantt">Gantt charts</a></div><ul class="main-menu--children"><li class="partial main-menu-item" data-name="global_gantt_query_select"><turbo-frame data-turbo="false" loading="lazy" id="gantt_menu" src="/gantt/menu" target="_top"></turbo-frame>
+</li></ul>
+</li>
+<li class="main-menu-item" data-name="news"><a class="news-menu-item op-menu--item-action" title="News" data-test-selector="op-menu--item-action" href="http://project-test.debortoli.network/news"><svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-megaphone mr-3">
+    <path d="M3.25 9a.75.75 0 0 1 .75.75c0 2.142.456 3.828.733 4.653a.122.122 0 0 0 .05.064.212.212 0 0 0 .117.033h1.31c.085 0 .18-.042.258-.152a.45.45 0 0 0 .075-.366A16.743 16.743 0 0 1 6 9.75a.75.75 0 0 1 1.5 0c0 1.588.25 2.926.494 3.85.293 1.113-.504 2.4-1.783 2.4H4.9c-.686 0-1.35-.41-1.589-1.12A16.4 16.4 0 0 1 2.5 9.75.75.75 0 0 1 3.25 9Z"></path><path d="M0 6a4 4 0 0 1 4-4h2.75a.75.75 0 0 1 .75.75v6.5a.75.75 0 0 1-.75.75H4a4 4 0 0 1-4-4Zm4-2.5a2.5 2.5 0 1 0 0 5h2v-5Z"></path><path d="M15.59.082A.75.75 0 0 1 16 .75v10.5a.75.75 0 0 1-1.189.608l-.002-.001h.001l-.014-.01a5.775 5.775 0 0 0-.422-.25 10.63 10.63 0 0 0-1.469-.64C11.576 10.484 9.536 10 6.75 10a.75.75 0 0 1 0-1.5c2.964 0 5.174.516 6.658 1.043.423.151.787.302 1.092.443V2.014c-.305.14-.669.292-1.092.443C11.924 2.984 9.713 3.5 6.75 3.5a.75.75 0 0 1 0-1.5c2.786 0 4.826-.484 6.155-.957.665-.236 1.154-.47 1.47-.64.144-.077.284-.161.421-.25l.014-.01a.75.75 0 0 1 .78-.061Z"></path>
+</svg><span class="op-menu--item-title"><span class="ellipsis">News</span></span></a></li></ul>
+          
+          
+          <!-- Sidebar -->
+          <div id="sidebar" data-menus--main-target="sidebar">
+            
+            
+          </div>
+        </div>
+      </div>
+    <div class="content-overlay"></div>
+    <main id="content-wrapper" class="can-hide-navigation">
+      
+      <div id="flash-message-component"></div>
+      <turbo-frame id="flash-messages">
+        
+      </turbo-frame>
+      <div id="content" class="can-hide-navigation ">
+        <h1 class="hidden-for-sighted accessibility-helper">Content</h1>
+
+        <div id="content-body">
+            <div id="breadcrumb" class="">
+              <span style = 'display: block' class = 'position-label hidden-for-sighted'>You are here: </span>
+              <div id="full_breadcrumbs">
+                
+              </div>
+              
+            </div>
+          
+            <h2 class="headline--application">
+  <span><i class="icon-context icon-enterprise"  aria-hidden="true"></i></span>
+  OpenProject
+</h2>
+
+
+
+  <section class="widget-boxes -flex">
+      <div class="widget-box welcome">
+      <div class="op-widget-box--header" data-test-selector="op-widget-box--header">
+  <div class="op-widget-box--header-title title-container">
+    <h2 class="editable-toolbar-title--fixed">Welcome to the De Bortoli Wines Project Management Tool (OpenProject)</h2>
+  </div>
+</div>
+
+
+<div class="wiki op-uc-container">
+  <nav class="op-uc-toc"><ul class="op-uc-toc--list">
+<li class="op-uc-toc--list-item"><a href="#logging-in" class="op-uc-toc--item-link op-uc-link"><span class="op-uc-toc--list-item-number">1</span><span class="op-uc-toc--list-item-title">Logging In</span></a></li>
+<li class="op-uc-toc--list-item"><a href="#having-a-play-around" class="op-uc-toc--item-link op-uc-link"><span class="op-uc-toc--list-item-number">2</span><span class="op-uc-toc--list-item-title">Having a Play Around</span></a></li>
+<li class="op-uc-toc--list-item"><a href="#creating-projects" class="op-uc-toc--item-link op-uc-link"><span class="op-uc-toc--list-item-number">3</span><span class="op-uc-toc--list-item-title">Creating Projects</span></a></li>
+<li class="op-uc-toc--list-item"><a href="#getting-help" class="op-uc-toc--item-link op-uc-link"><span class="op-uc-toc--list-item-number">4</span><span class="op-uc-toc--list-item-title">Getting Help</span></a></li>
+</ul></nav>
+<h2 id="logging-in" class="op-uc-h2">Logging In<a class="op-uc-link_permalink icon-link op-uc-link" aria-hidden="true" href="#logging-in"></a>
+</h2>
+<p class="op-uc-p">All users can immediately login, by clicking the <strong>Sign In</strong> button (top right) and entering their short username (eg bgray) and password</p>
+<p class="op-uc-p">If you are logging in for the first time, this will create a user in the OpenProject system, and allow this user to be added to projects</p>
+<h2 id="having-a-play-around" class="op-uc-h2">Having a Play Around<a class="op-uc-link_permalink icon-link op-uc-link" aria-hidden="true" href="#having-a-play-around"></a>
+</h2>
+<p class="op-uc-p">There is both a <a href="https://project.debortoli.network/" rel="noopener noreferrer" target="_top" class="op-uc-link">Production</a> and <a href="http://project-test/" rel="noopener noreferrer" target="_top" class="op-uc-link">Test</a> instance of this software available - if you want to try something out in a non-critical environment, do it in the <a href="http://project-test/" rel="noopener noreferrer" target="_top" class="op-uc-link">Project-Test</a> install which is updated nightly with data from <a href="https://project.debortoli.network/" rel="noopener noreferrer" target="_top" class="op-uc-link">Production</a></p>
+<p class="op-uc-p">There are also some demo projects to get started with demo data we have prepared for you.</p>
+<ul class="op-uc-list">
+<li class="op-uc-list--item">
+<a href="http://project-test/projects/demo-project" rel="noopener noreferrer" target="_top" class="op-uc-link">Demo project</a>: to get an overview about classical project management.</li>
+<li class="op-uc-list--item">
+<a href="http://project-test/projects/your-scrum-project" rel="noopener noreferrer" target="_top" class="op-uc-link">Scrum project</a>: to learn about Agile and Scrum project management.</li>
+</ul>
+<h2 id="creating-projects" class="op-uc-h2">Creating Projects<a class="op-uc-link_permalink icon-link op-uc-link" aria-hidden="true" href="#creating-projects"></a>
+</h2>
+<p class="op-uc-p">By default, you will not be able to create a Project, only participate in existing projects for which you have been added as a Member.</p>
+<p class="op-uc-p">If you are interested in using the tool for Project Management, please <a href="mailto:it@debortoli.com.au" rel="noopener noreferrer" target="_top" class="op-uc-link">contact IT</a> (<a href="mailto:bernard_gray@debortoli.com.au" rel="noopener noreferrer" target="_top" class="op-uc-link">Bernard Gray</a>) to organise training.</p>
+<h2 id="getting-help" class="op-uc-h2">Getting Help<a class="op-uc-link_permalink icon-link op-uc-link" aria-hidden="true" href="#getting-help"></a>
+</h2>
+<p class="op-uc-p">OpenProject has <a href="https://www.openproject.org/docs/user-guide/" rel="noopener noreferrer" target="_top" class="op-uc-link">excellent documentation</a></p>
+<p class="op-uc-p">You can also <a href="mailto:it@debortoli.com.au" rel="noopener noreferrer" target="_top" class="op-uc-link">contact IT</a> if you need help getting access to features or modules</p>
+</div>
+
+      </div>
+      <div class="widget-box projects">
+      <div class="op-widget-box--header" data-test-selector="op-widget-box--header">
+  <div class="op-widget-box--header-title title-container">
+    <h2 class="editable-toolbar-title--fixed">Projects</h2>
+  </div>
+</div>
+
+
+
+  <p class="widget-box--additional-info">Newest visible projects in this instance.</p>
+  <ul class="widget-box--arrow-links">
+    <li>
+      <a title="" href="/projects/pd2024-056-domdel-cartolina-deletion-1">PD2024 056 DOMDEL CARTOLINA DELETION</a>
+      <small>(19/09/2024)</small>
+    </li>
+    <li>
+      <a title="Test new OpenProject Set Up" href="/projects/pd2024-056-domdel-cartolina-deletion">ZPD2024 056 DOMDEL CARTOLINA DELETION</a>
+      <small>(19/09/2024)</small>
+    </li>
+    <li>
+      <a title="" href="/projects/pd2024-015-expdel-lorimers-lane-12x750ml-japan">PD2024 015 EXPDEL LORIMERS LANE 12x750mL JAPAN</a>
+      <small>(19/09/2024)</small>
+    </li>
+  </ul>
+
+<div class="widget-box--blocks--buttons">
+
+    <a class="button -highlight-inverted" title="View all projects" href="/projects">View all projects</a>
+</div>
+
+      </div>
+      <div class="widget-box new_features">
+      <div class="op-widget-box--header" data-test-selector="op-widget-box--header">
+  <div class="op-widget-box--header-title title-container">
+    <h2 class="editable-toolbar-title--fixed">New features</h2>
+  </div>
+</div>
+
+
+<opce-homescreen-new-features-block></opce-homescreen-new-features-block>
+
+      </div>
+      <div class="widget-box news">
+      <div class="op-widget-box--header" data-test-selector="op-widget-box--header">
+  <div class="op-widget-box--header-title title-container">
+    <h2 class="editable-toolbar-title--fixed">Latest news</h2>
+  </div>
+</div>
+
+  <ul class="widget-box--arrow-links">
+    <li class="widget-box--arrow-multiline">
+      
+      <div class="widget-box--project">
+        <a href="/projects/your-scrum-project">Scrum project</a>: 
+        <a href="/news/2-welcome-to-your-scrum-demo-project">Welcome to your Scrum demo project</a>
+      </div>
+      <div class="widget-box--author news-author"></div>
+      <p class="widget-box--additional-info">We are glad you joined. In this module you can communicate project news to your team members.
+</p>
+    </li>
+    <li class="widget-box--arrow-multiline">
+      
+      <div class="widget-box--project">
+        <a href="/projects/demo-project">Demo project</a>: 
+        <a href="/news/1-welcome-to-your-demo-project">Welcome to your demo project</a>
+      </div>
+      <div class="widget-box--author news-author"></div>
+      <p class="widget-box--additional-info">We are glad you joined. In this module you can communicate project news to your team members.
+</p>
+    </li>
+  </ul>
+
+      </div>
+      <div class="widget-box community">
+      <div class="op-widget-box--header" data-test-selector="op-widget-box--header">
+  <div class="op-widget-box--header-title title-container">
+    <h2 class="editable-toolbar-title--fixed">OpenProject community</h2>
+  </div>
+</div>
+
+
+<ul class="widget-box--arrow-links">
+  <li>
+    <a class="openproject--static-link" target="_blank" rel="noopener" href="https://www.openproject.org/docs/user-guide/">User guides</a>
+  </li>
+  <li>
+    <a class="openproject--static-link" target="_blank" rel="noopener" href="https://www.openproject.org/docs/user-guide/keyboard-shortcuts-access-keys/">Shortcuts</a>
+  </li>
+  <li>
+    <a class="openproject--static-link" target="_blank" rel="noopener" href="https://community.openproject.org/projects/openproject/forums">Community forum</a></li>
+  <li>
+    <a class="openproject--static-link" target="_blank" rel="noopener" href="https://www.openproject.org/pricing/#support">Enterprise support</a>
+  </li>
+  <li>
+    <a aria-label="OpenProject website" target="_blank" title="OpenProject website" href="https://www.openproject.org/?utm_source=unknown&amp;utm_medium=op-instance&amp;utm_campaign=website-home-screen">OpenProject website</a>
+  </li>
+  <li>
+    <a aria-label="Security alerts / Newsletter" target="_blank" title="Security alerts / Newsletter" href="https://www.openproject.org/newsletter/?utm_source=unknown&amp;utm_medium=op-instance&amp;utm_campaign=newsletter-home-screen">Security alerts / Newsletter</a>
+  </li>
+  <li>
+    <a class="openproject--static-link" target="_blank" rel="noopener" href="https://www.openproject.org/blog">OpenProject blog</a>
+  </li>
+  <li>
+    <a class="openproject--static-link" target="_blank" rel="noopener" href="https://www.openproject.org/docs/release-notes/">Release notes</a>
+  </li>
+  <li>
+    <a class="openproject--static-link" target="_blank" rel="noopener" href="https://www.openproject.org/docs/development/report-a-bug/">Report a bug</a>
+  </li>
+  <li>
+    <a class="openproject--static-link" target="_blank" rel="noopener" href="https://community.openproject.org/projects/openproject/roadmap">Development roadmap</a>
+  </li>
+  <li>
+    <a class="openproject--static-link" target="_blank" rel="noopener" href="https://www.openproject.org/docs/development/translate-openproject/">Add and edit translations</a>
+  </li>
+  <li>
+    <a class="openproject--static-link" target="_blank" rel="noopener" href="https://www.openproject.org/docs/api/">API documentation</a>
+  </li>
+</ul>
+
+      </div>
+      <div class="widget-box upsale">
+      <div class="widget-box--description">
+  <img role="presentation" class="widget-box--blocks--upsale-image" src="/images/enterprise-add-on.svg" />
+  <div class="widget-box--blocks--upsale-text">
+    <div class="widget-box--blocks--upsale-title">
+      <span class="spot-icon spot-icon_enterprise-addons"></span>
+      <span>Upgrade to Enterprise edition</span>
+    </div>
+    <p class="widget-box--blocks--upsale-description">
+      The OpenProject Enterprise edition builds on top of the Community edition. It includes Enterprise add-ons and professional support mainly aimed at organizations with more than 10 users that manage business critical projects with OpenProject.
+
+    </p>
+
+    <p>
+      <b>Become a hero!</b> Developers need to pay their bills, too. By upgrading to the Enterprise edition, you will be supporting this open source community effort and contributing to its development, maintenance and continuous improvement.
+    </p>
+
+    <p>
+      <b>We deliver the confidence of a tested and supported enterprise-class project management software - with Open Source and an open mind.
+</b>
+    </p>
+  </div>
+</div>
+
+<div class="widget-box--blocks--upsale-buttons">
+  <a class="button--link widget-box--blocks--upsale-info-button" target="_blank" rel="noopener" href="https://www.openproject.org/enterprise-edition/?utm_source=unknown&amp;utm_medium=community-edition&amp;utm_campaign=home-screen">
+    <span class="spot-icon spot-icon_external-link"></span>
+    <span class="button--text">More information</span>
+
+</a>
+  <a class="button -primary" target="_blank" rel="noopener" href="https://www.openproject.org/pricing/">
+    <span class="spot-icon spot-icon_enterprise-addons"></span>
+    <span class="button--text">Upgrade now</span>
+</a>
+</div>
+
+      </div>
+  </section>
+
+  <section class="homescreen--links">
+
+    <a class="homescreen--links--item" href="https://www.openproject.org/docs/user-guide/" target="_blank" title="User guides">
+      <i class="icon-context icon-rename"  aria-hidden="true"></i>
+      User guides
+    </a>
+    <a class="homescreen--links--item" href="https://www.openproject.org/docs/glossary/" target="_blank" title="Glossary">
+      <i class="icon-context icon-glossar"  aria-hidden="true"></i>
+      Glossary
+    </a>
+    <a class="homescreen--links--item" href="https://www.openproject.org/docs/user-guide/keyboard-shortcuts-access-keys/" target="_blank" title="Shortcuts">
+      <i class="icon-context icon-shortcuts"  aria-hidden="true"></i>
+      Shortcuts
+    </a>
+    <a class="homescreen--links--item" href="https://community.openproject.org/projects/openproject/forums" target="_blank" title="Community forum">
+      <i class="icon-context icon-forums"  aria-hidden="true"></i>
+      Community forum
+    </a>
+  </section>
+
+
+
+        </div>
+        <turbo-frame id="content-bodyRight">
+</turbo-frame></div>    </main>
+  </div>
+  <div id="ajax-indicator" style="display:none;"><span>Loading...</span></div>
+</div>
+<script nonce="sZHe0NC0nDCjriU+oFKvBGdSyZ/+UuSU9F1pe0/z88I=">
+  // execute these lines to prevent flickering when page loads:
+
+  (function($) {
+    var wrapper = $('#wrapper');
+    var savedMainMenuWidth = window.OpenProject.guardedLocalStorage("openProject-mainMenuWidth");
+    var mainMenuCollapsed =  window.OpenProject.guardedLocalStorage("openProject-mainMenuCollapsed");
+
+    if (window.innerWidth < 1012) {
+      // force hide on load for small desktops
+      $('.can-hide-navigation').addClass('hidden-navigation');
+    }
+
+    if (mainMenuCollapsed === 'true') {
+      savedMainMenuWidth = 0;
+    }
+
+    if (savedMainMenuWidth || savedMainMenuWidth === 0) {
+      document.documentElement.style.setProperty("--main-menu-width", savedMainMenuWidth + 'px');
+    }
+
+    wrapper.show();
+
+    // Wrapper for page-specific JS from deprecated inline functions
+    // no longer available with CSP.
+    
+  }(jQuery));
+</script><div class="op-wide-autocomplete-wrapper"></div>
+
+</body>
+</html>
+

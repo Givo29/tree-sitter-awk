@@ -22,18 +22,10 @@
     "url": "https://github.com/Beaglefoot/tree-sitter-awk.git"
   },
   "scripts": {
-    "generate": "tree-sitter generate",
-    "build": "yarn generate && yarn install",
-    "build:wasm": "tree-sitter build-wasm",
-    "parse": "tree-sitter parse",
-    "types": "node scripts/generate_types.js",
-    "types:watch": "node scripts/generate_types_watch.js",
-    "trim": "sed ' s/ \\[.*\\]//; s/\\w\\+:// '",
-    "test": "tree-sitter test",
-    "version": "./scripts/update_highlights_version.sh",
-    "prepublishOnly": "yarn build:wasm",
     "install": "node-gyp-build",
-    "prebuildify": "prebuildify --napi --strip"
+    "prestart": "tree-sitter build --wasm",
+    "start": "tree-sitter playground",
+    "test": "node --test bindings/node/*_test.js"
   },
   "dependencies": {
     "node-addon-api": "^7.1.0",
